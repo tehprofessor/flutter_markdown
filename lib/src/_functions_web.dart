@@ -66,15 +66,15 @@ final MarkdownStyleSheet Function(BuildContext, MarkdownStyleSheetBaseTheme)
 };
 
 Widget _handleDataSchemeUri(Uri uri, final double width, final double height) {
-  final String mimeType = uri.data.mimeType;
+  final String mimeType = uri.data!.mimeType;
   if (mimeType.startsWith('image/')) {
     return Image.memory(
-      uri.data.contentAsBytes(),
+      uri.data!.contentAsBytes(),
       width: width,
       height: height,
     );
   } else if (mimeType.startsWith('text/')) {
-    return Text(uri.data.contentAsString());
+    return Text(uri.data!.contentAsString());
   }
   return const SizedBox();
 }
